@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.21)  20 JAN 2017 21:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.21)  20 JAN 2017 22:36
 entering extended mode
 **./math.tex
 (math.tex
@@ -2342,7 +2342,7 @@ Missing character: There is no ; in font nullfont!
 ]
 File: Feathergraphics/2.pdf Graphic file (type pdf)
  <use Feathergraphics/2.pdf>
-Package pdftex.def Info: Feathergraphics/2.pdf used on input line 269.
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 272.
 (pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
 Missing character: There is no ; in font nullfont!
  [26
@@ -2351,20 +2351,63 @@ Missing character: There is no ; in font nullfont!
 File: Feathergraphics/2.pdf Graphic file (type pdf)
 
 <use Feathergraphics/2.pdf>
-Package pdftex.def Info: Feathergraphics/2.pdf used on input line 276.
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 272.
 (pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
 Missing character: There is no ; in font nullfont!
  [27
 
 ]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 301.
-File: Feathergraphics/1.pdf Graphic file (type pdf)
- <use Feathergraphics/1.pdf>
-Package pdftex.def Info: Feathergraphics/1.pdf used on input line 301.
-(pdftex.def)             Requested size: 364.19992pt x 273.15736pt.
-Package atenddvi Info: Last page = 28.
+File: Feathergraphics/2.pdf Graphic file (type pdf)
+ <use Feathergraphics/2.pdf>
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 283.
+(pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
+Missing character: There is no ; in font nullfont!
  [28
+
+]
+File: Feathergraphics/2.pdf Graphic file (type pdf)
+
+<use Feathergraphics/2.pdf>
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 283.
+(pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
+Missing character: There is no ; in font nullfont!
+ [29
+
+]
+File: Feathergraphics/2.pdf Graphic file (type pdf)
+ <use Feathergraphics/2.pdf>
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 283.
+(pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
+Missing character: There is no ; in font nullfont!
+Package atenddvi Info: Last page = 30.
+ [30
+
+]
+File: Feathergraphics/2.pdf Graphic file (type pdf)
+
+<use Feathergraphics/2.pdf>
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 283.
+(pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
+Missing character: There is no ; in font nullfont!
+ [31
+
+]
+File: Feathergraphics/2.pdf Graphic file (type pdf)
+ <use Feathergraphics/2.pdf>
+Package pdftex.def Info: Feathergraphics/2.pdf used on input line 290.
+(pdftex.def)             Requested size: 37.40611pt x 34.74406pt.
+Missing character: There is no ; in font nullfont!
+ [32
+
+]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 315.
+File: Feathergraphics/1.pdf Graphic file (type pdf)
+
+<use Feathergraphics/1.pdf>
+Package pdftex.def Info: Feathergraphics/1.pdf used on input line 315.
+(pdftex.def)             Requested size: 364.19992pt x 273.15736pt.
+ [33
 
 ]
 \tf@nav=\write6
@@ -2376,47 +2419,74 @@ Package atenddvi Info: Last page = 28.
 \tf@snm=\write8
 \openout8 = `math.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 303.
- (math.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
-Package rerunfilecheck Info: File `math.out' has not changed.
-(rerunfilecheck)             Checksum: B18F2AE06457A3E707EA5EA7396305AD;438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 317.
+ (math.aux
 
+Package atenddvi Warning: Rerun LaTeX, last page has changed.
+
+
+Package animate Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+(animate)                @ Rerun to get internal references right! @
+(animate)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 317.
+
+
+Package rerunfilecheck Warning: File `math.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `math.out':
+(rerunfilecheck)             Before: ADFE1BA1141746EF690557EF6E4D0915;438
+(rerunfilecheck)             After:  DE6568D644E7E9BA68AF0EDAFADBF040;438.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
  ) 
 Here is how much of TeX's memory you used:
- 33394 strings out of 493334
- 636159 string characters out of 3136663
- 783443 words of memory out of 3000000
- 36003 multiletter control sequences out of 15000+200000
+ 33414 strings out of 493334
+ 636417 string characters out of 3136663
+ 783439 words of memory out of 3000000
+ 36010 multiletter control sequences out of 15000+200000
  121352 words of font info for 174 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,17n,96p,10438b,943s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/newtx/ntx-ecth-
-tlf.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/
-Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}
-<C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/ntxsyral
-t.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/nt
-xtmri.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-
-gyre/qtmb.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/
-tex-gyre/qtmr.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/pub
-lic/txfonts/rtxmi.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1
-/public/txfonts/rtxr.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/ty
-pe1/public/txfonts/t1xtt.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/font
-s/type1/public/newtx/txexs.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fo
-nts/type1/public/txfonts/txsyb.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.
-9/fonts/type1/public/newtx/txsys.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw
-/helvetic/uhvro8a.pfb>
-Output written on math.pdf (28 pages, 9550854 bytes).
+pdfTeX warning (dest): name{Outline0.3.2.30} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.30} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.2.30} has been referenced but does not e
+xist, replaced by a fixed one
+
+{C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/newtx/ntx-ecth-tl
+f.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/Us
+ers/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}<C
+:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/ntxsyralt.
+pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/newtx/ntxt
+mri.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/tex-gy
+re/qtmb.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/te
+x-gyre/qtmr.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/publi
+c/txfonts/rtxmi.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type1/p
+ublic/txfonts/rtxr.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/type
+1/public/txfonts/t1xtt.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/fonts/
+type1/public/newtx/txexs.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/font
+s/type1/public/txfonts/txsyb.pfb><C:/Users/v-haoysh/AppData/Roaming/MiKTeX/2.9/
+fonts/type1/public/newtx/txsys.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/h
+elvetic/uhvro8a.pfb>
+Output written on math.pdf (33 pages, 9566723 bytes).
 PDF statistics:
- 1314 PDF objects out of 1440 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
+ 1356 PDF objects out of 1440 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
  2898 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -254,7 +254,7 @@ Therefore, $\sum_{i=0}^n = \frac{n(n+1)}{2}, \forall n\in \mathbb{N}$. \#
 %-------------------------------------------------------
 \begin{frame}{Number Theory}{Division, Prime and Coprime}
 %-------------------------------------------------------
-\textbf{\large Euclid Algorithm for Greatest Common Divisor(GCD)}
+\textbf{\large Euclidean Algorithm for Greatest Common Divisor(GCD)}
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
 	\STATE{\textbf{function} GCD(\textbf{integer} a,b)}
@@ -264,8 +264,22 @@ Therefore, $\sum_{i=0}^n = \frac{n(n+1)}{2}, \forall n\in \mathbb{N}$. \#
 		\STATE{\textbf{return} GCD(b, a \textbf{mod} b)}
 	\ENDIF
 \end{algorithmic}
-\caption*{Pseudo-code for linear sieve.}
+\caption*{Pseudo-code for Euclidean Algorithm.}
 \end{algorithm}
+
+\pause
+Most of you know how, but why?
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Euclidean Algorithm for Greatest Common Divisor(GCD)}
+\textbf{\sl Proof}  \\
+For any two integers $a, b$, $a$ can be written as $$a = bq + r$$ where $q, r$ are non-negative integers, $0 \leq r < b$. \\ \pause
+For all intergers $d$, if $d | a$ and $d | b$, then $$d|bq \Rightarrow d|(a-bq) \Rightarrow d|r$$ \pause
+Namely, if $d$ is a common divisor of $a$ and $b$, then $d$ is a common divisor of $b$ and $r$, and vice versa. \\ \pause
+Hence, GCD of $a$ and $b$ (denoted as $(a,b)$) equals $(b,r)$.
 \end{frame}
 
 %-------------------------------------------------------
