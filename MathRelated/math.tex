@@ -1,0 +1,303 @@
+\documentclass[10pt]{beamer}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage{amsmath}
+\usepackage{algorithm}  
+\usepackage{algorithmic} 
+\usepackage{caption}
+\usepackage{animate} 
+\usepackage{lipsum} % just to generate dummy text
+
+\usetheme[
+%%% option passed to the outer theme
+%    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
+  ]{Feather}
+  
+% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
+
+% Change the bar colors:
+%\setbeamercolor{Feather}{fg=red!20,bg=red}
+
+% Change the color of the structural elements:
+%\setbeamercolor{structure}{fg=red}
+
+% Change the frame title text color:
+%\setbeamercolor{frametitle}{fg=blue}
+
+% Change the normal text color background:
+%\setbeamercolor{normal text}{fg=black,bg=gray!10}
+
+%-------------------------------------------------------
+% INCLUDE PACKAGES
+%-------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+
+%-------------------------------------------------------
+% DEFFINING AND REDEFINING COMMANDS
+%-------------------------------------------------------
+
+% colored hyperlinks
+\newcommand{\chref}[2]{
+  \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
+}
+
+%-------------------------------------------------------
+% INFORMATION IN THE TITLE PAGE
+%-------------------------------------------------------
+
+\title[Mathematics in OI] % [] is optional - is placed on the bottom of the sidebar on every slide
+{ % is placed on the title page
+      \textbf{Mathematics in Olympiad in Informatics}
+}
+
+
+\author[Haoyue Shi]
+{      Frederica Haoyue Shi \\
+      {\ttfamily hyshi@pku.edu.cn}
+}
+
+\institute[School of EECS, Peking University]
+{
+      School of Electronics Engineering and Computer Science\\
+	  Peking University \\
+  
+  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+}
+
+\date{\today}
+
+%-------------------------------------------------------
+% THE BODY OF THE PRESENTATION
+%-------------------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------------------
+% THE TITLEPAGE
+%-------------------------------------------------------
+
+{\1% % this is the name of the PDF file for the background
+\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
+  \titlepage % call the title page information from above
+\end{frame}}
+
+
+\begin{frame}{Content}{}
+\tableofcontents
+\end{frame}
+
+
+%-------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------
+\begin{frame}{Introduction}
+%-------------------------------------------------------
+English is \textbf{very helpful} to our future study and work. Please try to use English as much as possible, from now on. 
+\\~\\
+Therefore, the slides are written in English. 
+\\~\\
+If there's no specific instruction, the complexity is always time complexity. 
+\\~\\
+For the convenience of view, I recommend you to open it with Adobe Reader. 
+\end{frame}
+
+
+%-------------------------------------------------------
+\section{Number Theory}
+\subsection{Division, Prime and Coprime}
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\begin{block}{Fundamental theorem of arithmetic}
+    Every integer greater than $1$ either is prime itself or is the product of prime numbers, and that this product is unique, up to the order of the factors. i.e. $$\forall n > 1, n \in \mathbb{N}, n = p_1^{a_1}p_2^{a_2} ... p_n^{a_n}$$ where $p_k (1\leq k\leq n), p_1<p_2<...<p_n$ is prime. 
+\end{block}
+\pause
+\begin{block}{Prime Number Theorem}
+    \begin{equation}
+		\pi(N) \sim	 \frac{N}{\log(N)} \nonumber
+	\end{equation}
+	where $\pi(N)$ is the prime counting function, and $\log(N)$ is the natural logarithm of $N$. The equation means that for large enough $N$, the probability that a random natural number not greater than $N$ is prime is very close to $\frac{1}{\log(N)}$.
+\end{block}
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large How to check whether a number $N$ is prime?}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+	\FOR{$i=2$ to $\sqrt{N}$}
+		\IF{$i$ is divisor of $N$}
+			\STATE \textbf{return} False
+		\ENDIF
+	\ENDFOR
+\end{algorithmic}
+\caption*{Pseudo-code for prime number checking.}
+\end{algorithm}
+\pause
+~\\~\\
+The time complexity of such algorithm is $O(\sqrt{N})$. \\
+The space complexity of such algorithm is $O(1)$.
+
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large How to generate a prime number list from $1$ to $N$?}
+\begin{enumerate}
+	\item Check whether a number is prime one by one. \pause $O(N\sqrt{N})$ \pause
+	\item Sieve of Eratosthenes 
+\end{enumerate}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Sieve of Eratosthenes } \\
+\begin{center}
+\animategraphics[width=2in,height=2.2in,controls,loop]{10}{Images/output-}{0}{158}
+\end{center}
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large How to generate a prime number list from $1$ to $N$?}
+\begin{enumerate}
+	\item Check whether a number is prime one by one. $O(N\sqrt{N})$
+	\item Sieve of Eratosthenes \pause $O(N\log(N))$ \pause
+	\item Linear Sieve
+\end{enumerate}
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+	\FOR{$i=2$ to $N$}
+		\STATE{set $IsPrime[i] = True$}
+	\ENDFOR
+	\FOR{$i=2$ to $N$}
+		\IF{$IsPrime[i]$}
+			\STATE{push $i$ into PrimeNumberList}
+		\ENDIF
+		\STATE{$j=0$}
+		\WHILE{$j$ < CurrentPrimeNumber \textbf{and} $i \cdot $PrimeNumberList[$j$]$ < N$}
+			\STATE{IsPrime[$i \cdot $PrimeNumberList[$j$]] = False}
+			\IF{PrimeNumberList[$j$] is divisor of $i$}
+				\STATE{\textbf{break}}
+			\ENDIF
+			\STATE{\textbf{increase} $j$}
+		\ENDWHILE
+	\ENDFOR
+\end{algorithmic}
+\caption*{Pseudo-code for linear sieve.}
+\end{algorithm}
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Linear Sieve} \\
+The time complexity of such algorithm is $O(N)$. \\
+The space complexity of such algorithm is $O(N)$. \\[0.5cm]
+\pause
+\textbf{Practice: POJ 2689} \\
+Given $L, U(1\leq L < U < 2^{31}, U-L\leq 1,000,000)$, you are to find the two adjacent primes $C_1$ and $C_2 (L\leq C_1 < C_2 \leq U)$ that are closest (i.e. $C_2 - C_1$ is the minimum), and the two adjacent primes $D_1$ and $D_2 (L\leq D_1 < D_2 \leq U)$ that are the most distant (i.e. $D_2 - D_1$ is the maximum). 
+\\~\\
+\pause
+Hint: You are definitely required to generate a prime number list in the range of $[L,U]$. But how?
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Optional: Mathematical Induction}
+%-------------------------------------------------------
+Mathematical induction is a mathematical proof technique used to prove a given statement about any well-ordered set. Most commonly, it is used to establish statements for the set of all natural numbers. \\~\\
+\pause
+It contains two steps:
+\begin{enumerate}
+\item \textbf{base case}, to prove the given statement for the least element in the well-ordered set. \pause
+\item \textbf{inductive step}, to prove that, if the statement is assumed to be true for any element, then it must be true for the next element as well.
+\end{enumerate}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Optional: Mathematical Induction}
+%-------------------------------------------------------
+\textbf{\large An Example}
+\\~\\
+Prove $\sum_{i=0}^n = \frac{n(n+1)}{2}, \forall n\in \mathbb{N}$ \\[0.5cm]
+\pause
+\textbf{\sl Proof}~For the case $n=0$, we have $\sum_{i=0}^n=\frac{n(n+1)}{2}=0$. \\[0.2cm]
+\pause
+Assume that $\sum_{i=0}^n=\frac{n(n+1)}{2}$ when $n=k$, \\[0.2cm]
+then $\sum_{i=0}^{k+1}=\frac{k(k+1)}{2}+k+1=\frac{k(k+1)+2(k+1)}{2}=\frac{(k+1)(k+2)}{2}$. \\[0.2cm]
+Hence, the statement is true when $n=k+1$. \\[0.2cm]
+\pause
+Therefore, $\sum_{i=0}^n = \frac{n(n+1)}{2}, \forall n\in \mathbb{N}$. \#
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Euclid Algorithm for Greatest Common Divisor(GCD)}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+	\STATE{\textbf{function} GCD(\textbf{integer} a,b)}
+	\IF{b == 0}
+		\STATE{\textbf{return} a}
+	\ELSE
+		\STATE{\textbf{return} GCD(b, a \textbf{mod} b)}
+	\ENDIF
+\end{algorithmic}
+\caption*{Pseudo-code for linear sieve.}
+\end{algorithm}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Euler's totient function}
+
+\end{frame}
+
+
+%-------------------------------------------------------
+\subsection{Congruence Modulo}
+%-------------------------------------------------------
+
+
+
+%-------------------------------------------------------
+\section{Introduction to Calculus}
+\subsection{Differential of a Function}
+%-------------------------------------------------------
+
+
+%-------------------------------------------------------
+\subsection{Calculus}
+%-------------------------------------------------------
+
+
+
+
+{\1
+\begin{frame}[plain,noframenumbering]
+  \finalpage{Thank you for attention! \\ Powereed by \LaTeX. }
+\end{frame}}
+
+\end{document}
