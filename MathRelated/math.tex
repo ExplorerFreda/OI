@@ -1,8 +1,8 @@
-\documentclass[10pt]{beamer}
-\usepackage{times}
+\documentclass[mathserif,10pt]{beamer}
 \usepackage[T1]{fontenc}
-\usepackage{newtxmath,newtxtext}
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
+\usepackage{times}
+\usepackage{newtxtext}
 \usepackage{algorithm}  
 \usepackage{algorithmic} 
 \usepackage{caption}
@@ -52,7 +52,7 @@
 
 \title[Mathematics in OI] % [] is optional - is placed on the bottom of the sidebar on every slide
 { % is placed on the title page
-      \textbf{Mathematics in Olympiad in Informatics}
+      \textbf{Mathematics in Olympiad in Informatics \\[0.3cm] Part 1}
 }
 
 
@@ -279,30 +279,339 @@ Most of you know how, but why?
 For any two integers $a, b$, $a$ can be written as $$a = bq + r$$ where $q, r$ are non-negative integers, $0 \leq r < b$. \\ \pause
 For all intergers $d$, if $d | a$ and $d | b$, then $$d|bq \Rightarrow d|(a-bq) \Rightarrow d|r$$ \pause
 Namely, if $d$ is a common divisor of $a$ and $b$, then $d$ is a common divisor of $b$ and $r$, and vice versa. \\ \pause
-Hence, GCD of $a$ and $b$ (denoted as $(a,b)$) equals $(b,r)$.
+Hence, GCD of $a$ and $b$ (denoted as $(a,b)$) equals $(b,r)$. \#
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\begin{block}{Bézout's Identity(Lemma)}
+	Let $a$ and $b$ be nonzero integers and let $d$ be their greatest common divisor. Then there exist integers $x$ and $y$ such that $$ax+by=d$$ 
+	In addition, 
+	\begin{itemize}
+		\item the greatest common divisor $d$ is the smallest positive integer that can be written as $ax + by$
+		\item every integer of the form $ax + by$ is a multiple of the greatest common divisor $d$.
+	\end{itemize}
+\end{block}
+~\\
+It can be proved similarly to the proof of Euclidean Algorithm, and the so called Extended Euclidean Algorithm comes out.
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Extended Euclidean Algorithm} \\[0.2cm]
+Purpose: Given 3 intergers $a, b, c$, to find out all solutions for $$ax+by=c$$.
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+	\STATE{\textbf{function} EX-EUC(\textbf{integer} a,b)}
+	\IF{b == 0}
+		\STATE{\textbf{set} x = 1, y = 0}
+		\STATE{\textbf{return} a}
+	\ELSE
+		\STATE{\textbf{set} d = EX-EUC(b, a \textbf{mod} b)}
+		\STATE{\textbf{set} t = x, x = y, y = t - a / b * y}
+		\STATE{\textbf{return} d}
+	\ENDIF
+\end{algorithmic}
+\caption*{Pseudo-code for Extended-Euclidean Algorithm}
+\end{algorithm}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Extended Euclidean Algorithm} \\[0.2cm]
+Purpose: Given 3 intergers $a, b, c$, to find out all solutions for $$ax+by=c$$.
+\\[0.2cm]
+Remember to check the case of NO SOLUTION : $d \nmid c$.
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Practice: Compute $\sum_{i=1}^n K \bmod ~i,  1\leq K \leq 10^9$ } \\[0.5cm]
+\pause
+Hint:
+$$K \bmod~i = K - \lfloor \frac{K}{i} \rfloor i$$
+\pause 
+For some successive $i$, $\lfloor \frac{K}{i} \rfloor$ remains constant. \\
+\pause
+How many such intervals are there, in the range of $[1, K]$? 
+\pause ~~$O(\sqrt{K})$ 
+~\\
+Please finish the proof by yourselves and write the program after class. 
 \end{frame}
 
 %-------------------------------------------------------
 \begin{frame}{Number Theory}{Division, Prime and Coprime}
 %-------------------------------------------------------
 \textbf{\large Euler's totient function}
+$$
+\phi(n) = n\prod_{p|n} (1-\frac{1}{p}) 
+$$
+where $p$ is a prime number.
+\pause
+~\\
+Proof: Inclusion-Exclusion Principle
+\pause
+\begin{block}{Euler's Theorem}
+If $n$ and $a$ are coprime positive integers, then
+$$a^{\phi(n)} \equiv 1 (\bmod ~ n)$$
+\end{block}
+\end{frame}
 
+%-------------------------------------------------------
+\begin{frame}{Number Theory}{Division, Prime and Coprime}
+%-------------------------------------------------------
+\textbf{\large Proof of Euler's Theorem} \\
+\textbf{\sl Proof} ~~ Let $R$ be a reduced residue system ($\bmod~ n$) and let $a$ be any integer coprime to $n$. \\
+\pause
+The proof hinges on the \textbf{fundamental fact} that multiplication by a permutes the sequence $\{x_i\}$: in other words if $ax_j \equiv ax_k (\bmod~n)$ then $j = k$. 
+\\
+\pause
+That is, the sets $R$ and $aR = \{ax_1, ax_2, ..., ax_{\phi(n)}\}$. \\
+\pause
+Therefore, $$\prod_{i=1}^{\phi(n)}x_i \equiv \prod_{i=1}^{\phi(n)} ax_i \equiv a^{\phi(n)}\prod_{i=1}^{\phi(n)}x_i$$
+\pause
+$$\Rightarrow a^{\phi(n)} \equiv 1 (\bmod~n)$$
 \end{frame}
 
 
 %-------------------------------------------------------
+\begin{frame}{Number Theory}{Congruence Modulo}
+%-------------------------------------------------------
+\begin{block}{Fermat's Little Theorem}
+If $p$ is a prime number, then for any integer $a$, the number $a^p - a$ is an integer multiple of $p$. In the notation of modular arithmetic, this is expressed as
+$$a^p \equiv a ~~(\bmod~ p)$$
+\end{block}
+\pause
+Proof: Just a special case for Euler's Theorem. 
+\end{frame}
+
+\begin{frame}{Number Theory}{Congruence Modulo}
+%-------------------------------------------------------
+\textbf{\large Practice: POJ3090} \\
+Write a program which, given a value for the size, $N$, computes the number of visible points $(x, y)$ with $0 \leq x, y \leq N$. $(1\leq N \leq 1000)$
+\begin{center}
+\includegraphics[width=0.2\linewidth]{Images/3090}
+\end{center}
+\pause
+~\\ Hint: $GCD(x,y) = 1$
+\end{frame}
+
+%-------------------------------------------------------
 \subsection{Congruence Modulo}
 %-------------------------------------------------------
-
+\begin{frame}{Number Theory}{Congruence Modulo}
+%-------------------------------------------------------
+\textbf{\large Modular multiplicative inverse} \\
+This concept is analogous to the concept of the multiplicative inverse over the set of rational numbers.\\[0.5cm]
+The modulo multiplicative inverse for the congruence class $\overline{a}$ is the congruence class $\overline{x}$ such that $\overline{a} \cdot \overline{x} \equiv 1 ~~(\bmod~~ m)$
+\pause
+~\\[0.2cm]
+When a congruence class $\overline{a}$ has modulo multiplicative inverse?
+\pause
+~\\[0.2cm]
+Answer: $(a, m) = 1$
+\\[0.5cm]
+\pause
+Usage: Compute $\frac{a}{b} \bmod m$, where $(b, m) = 1$
+\end{frame}
 
 
 %-------------------------------------------------------
+\begin{frame}{Number Theory}{Congruence Modulo}
+%-------------------------------------------------------
+\begin{block}{Chinese remainder theorem}
+Assert $m_1, m_2, ..., m_k$ are pairwise coprime integers, $m = m_1m_2...m_k, M_i = \frac{m}{m_i}, M^{'}_iM_i\equiv 1(\bmod m_i), 1\leq i 
+\leq k$, then there exists an integer $$x=\sum_{i=1}^k a_iM_i M^{'}_i$$ such that 
+
+$$ x \equiv a_1 (\bmod~n_1) $$
+$$ x \equiv a_2 (\bmod~n_2) $$
+$$ ... $$
+$$ x\equiv a_k (\bmod~n_k) $$
+and any two $x$ are congruent modulo $M$.
+\end{block}
+\end{frame}
+
+
+%-------------------------------------------------------
+\section{Power and Matrix Multiplication}
+\subsection{Exponentiation}
+%-------------------------------------------------------
+\begin{frame}{Power and Matrix Multiplication}{Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Task: Compute $a ^ b$, a and b are non-negative integers.}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE{\textbf{set} result = 0}
+\FOR{$i=1$ to $b$}
+	\STATE{result = result $\cdot a$ }
+\ENDFOR
+\end{algorithmic}
+\caption*{Pseudo-code for brute-force computing of $a^b$}
+\end{algorithm}
+\pause
+The time complexity for the algorithm is $O(N)$. \\
+The space complexity for the algorithm is $O(1)$.
+\pause
+Is there any faster algorithm? Yes.
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Power and Matrix Multiplication}{Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Task: Compute $a ^ b$, a and b are non-negative integers.}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE{\textbf{function} power(a, b)}
+\IF{b == 0}
+	\STATE{\textbf{return} 1}
+\ELSE
+	\STATE{temp = power(a, b/2)}
+	\STATE{result = temp$^2$}
+	\IF{b $\bmod$  2 == 1}
+		\STATE{result = result $\cdot$ a}
+	\ENDIF
+	\STATE{\textbf{return} result}
+\ENDIF
+\end{algorithmic}
+\caption*{Pseudo-code for faster computing of $a^b$}
+\end{algorithm}
+\pause
+Time Complexity: $O(\log N)$~~~~~~~Space Complexity: $O(\log N)$
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Matrix Exponentiation}
+\begin{frame}{Power and Matrix Multiplication}{Matrix Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Matrix Multiplication}
+$$A \times B = C $$
+$$C_{ij} = \sum_k A_{ik} B_{kj}$$
+\begin{center}
+\pause
+\includegraphics[width=0.8\linewidth]{Images/matrix}
+\end{center}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Power and Matrix Multiplication}{Matrix Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Properties of Matrix Multiplication} \\[0.5cm]
+\pause
+Associative Law? \pause Yes. \\
+\pause
+Commutative Law? \pause \textbf{No!} \\[0.5cm]
+We could apply fast exponentiation method to matrix multiplication to compute $A^n$ for a matrix $A$, but the code should be modify a little.
+\end{frame}
+
+
+%-------------------------------------------------------
+\begin{frame}{Power and Matrix Multiplication}{Matrix Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Task: Compute $A ^ b$, where $A$ is a matrix and b is a non-negative integer.}
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE{\textbf{function} power(A, b)}
+\IF{b == 0}
+	\STATE{\textbf{return I}}
+\ELSE
+	\STATE{temp = power(A, b/2)}
+	\STATE{result = temp$^2$}
+	\IF{b $\bmod$  2 == 1}
+		\STATE{result = result $\times$ A}
+	\ENDIF
+	\STATE{\textbf{return} result}
+\ENDIF
+\end{algorithmic}
+\caption*{Pseudo-code for faster computing of $a^b$}
+\end{algorithm}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Power and Matrix Multiplication}{Matrix Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Usage: Compute the $n^{th}$ item for Fibonacci Sequence.} \\[0.5cm]
+Fibonacci Sequence: $f_0 = 1, f_1 = 1, f_n = f_{n-1} + f_{n-2} (k \geq 2)$ \\[0.5cm]
+\begin{itemize}
+	\item Enumerate every $i$ and compute $f_i$ one by one. \pause $O(n)$
+	\pause
+	\item Consider matrix multiplication:
+	\begin{equation}
+	\left(
+	\begin{array}{cc}
+		1 & 1 \\
+		1 & 0
+	\end{array}
+	\right) \nonumber
+	\end{equation}
+	\\
+	\pause $O(\log n) $
+\end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Power and Matrix Multiplication}{Matrix Exponentiation}
+%-------------------------------------------------------
+\textbf{\large Why it works?} \\[0.5cm]
+When we compute
+\begin{equation}
+	\left(
+	\begin{array}{cc}
+		1 & 1 \\
+		1 & 0
+	\end{array}
+	\right) \times 
+	\left(
+	\begin{array}{c}
+		1 \\
+		1
+	\end{array}
+	\right) = 
+	\left(
+	\begin{array}{cc}
+		2 \\
+		1
+	\end{array}
+	\right)
+	\nonumber
+	\end{equation}
+and
+	\begin{equation}
+	\left(
+	\begin{array}{cc}
+		1 & 1 \\
+		1 & 0
+	\end{array}
+	\right) \times 
+	\left(
+	\begin{array}{c}
+		2 \\
+		1
+	\end{array}
+	\right) = 
+	\left(
+	\begin{array}{cc}
+		3 \\
+		2
+	\end{array}
+	\right)
+	\nonumber
+	\end{equation}
+etc. \\
+We actually did the recurrence procedure. Thus, according to the associative law of matrix multiplication, why not combine the exponentiation of the matrix in order to make the algorithm faster?
+\end{frame}
+
+%-------------------------------------------------------
+\section{Linear Algebra}
+\section{Probability and Expectation}
+\section{Combinatorics}
 \section{Introduction to Calculus}
 \subsection{Differential of a Function}
-%-------------------------------------------------------
-
-
-%-------------------------------------------------------
 \subsection{Calculus}
 %-------------------------------------------------------
 
@@ -311,7 +620,7 @@ Hence, GCD of $a$ and $b$ (denoted as $(a,b)$) equals $(b,r)$.
 
 {\1
 \begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you for attention! \\ Powereed by \LaTeX. }
+  \finalpage{Part 1 ends here. Thank you for attention! \\ Powereed by \LaTeX. }
 \end{frame}}
 
 \end{document}

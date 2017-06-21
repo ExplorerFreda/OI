@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{times}
+\usepackage{newtxtext}
+\usepackage{algorithm}  
+\usepackage{algorithmic} 
+\usepackage{caption}
+\usepackage{animate} 
+\usepackage{CJK}
+\usepackage{lipsum} % just to generate dummy text
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\title{Test 2 for NOIP Training Winter 2017}
+\author{H.S. \& Y.L.}
+\maketitle
+
+
+\begin{table}[h]
+\begin{center}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{题目名称} & 看得见的点 & 括号画家 & 球形空间产生器\\
+\hline
+\textbf{提交源文件} & point.pas/.c/.cpp & bracket.pas/.c/.cpp & sphere.pas/.c/.cpp\\
+\hline
+\textbf{输入文件} & point.in & bracket.in & sphere.in\\
+\hline
+\textbf{输出文件} & point.out & bracket.out & sphere.out \\
+\hline
+\textbf{时间限制} & 1s & 0.5s & 1s\\
+\hline
+\textbf{内存限制} & 256MB & 256MB & 256MB\\
+\hline
+\textbf{测试点数目} & 10 & 10 & 10 \\
+\hline
+\textbf{每个测试点分值} & 10 & 10 & 10 \\
+\hline
+\textbf{是否有部分分} & 否 & 否 & 否 \\
+\hline
+\textbf{题目类型} & 传统型 & 传统型 & 传统型 \\
+\hline
+\textbf{是否有附加文件} & 否 & 否 & 否 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+
+\section{point}
+(point.pas/.c/.cpp, point.in, point.out)
+\subsection*{问题描述}
+给出如图所示的一个均匀钉满钉子的正方形木板，给出木板的边长$N$，求从左下角点$(0,0)$出发能够看到的纵坐标为$y$的点的个数。
+\begin{figure}[h]
+\begin{center}
+\includegraphics{Images/3090}
+\end{center}
+\end{figure}
+
+\subsection*{输入格式}
+输入一行用空格隔开的两个整数，表示边长$N$和纵坐标$y$.
+\subsection*{输出格式}
+对于每个$N$和$y$，输出能够看到的纵坐标为$y$的点数。
+\subsection*{输入样例}
+6 6
+\subsection*{输出样例}
+2
+\subsection*{数据范围}
+对于50\%的数据，$n \leq 1,000$. \\
+对于100\%的数据，$1 \leq y \leq n < 2^{31}$. \\
+
+\newpage
+
+\section{括号画家}
+(bracket.pas/.c/.cpp, bracket.in, bracket.out)
+\subsection*{问题描述}
+Candela是一名漫画家，她有一个奇特的爱好，就是在纸上画括号。这一天，刚刚起床的Candela画了一排括号序列，其中包含小括号()、中括号[]和大括号\{\}，总长度为N。这排随意绘制的括号序列显得杂乱无章，于是Candela定义了什么样的括号序列是美观的：
+\begin{itemize}
+\item 空的括号序列是美观的
+\item 若括号序列A是美观的，则括号序列(A)、[A]、\{A\}也是美观的
+\item 若括号序列A、B都是美观的，则括号序列AB也是美观的
+\end{itemize}
+例如 [()\{\}]() 是美观的括号序列，而 )(\{)[\}]( 则不是。
+现在Candela想在她绘制的括号序列中，找出其中连续的一段，满足这段子序列是美观的，并且长度尽量大。你能帮帮她吗？
+
+\subsection*{输入格式}
+第一行1个整数N，第二行1个长度为N的括号序列。
+\subsection*{输出格式}
+一个整数，表示最长的美观的连续子序列的长度。
+\subsection*{输入样例}
+[()\{\}]()
+\subsection*{输出样例}
+8
+\subsection*{数据范围}
+对于100\%的数据，$N\leq 10,000$.
+
+
+\newpage 
+
+\section{球形空间产生器}
+(sphere.pas/.c/.cpp, sphere.in, sphere.out)
+\subsection*{问题描述}
+有一个球形空间产生器能够在$n$维空间中产生一个坚硬的球体。现在，你被困在了这个$n$维球体中，你只知道球
+面上$n+1$个点的坐标，你需要以最快的速度确定这个$n$维球体的球心坐标，以便于摧毁这个球形空间产生器。
+
+\subsection*{输入格式}
+第一行是一个整数$n$。接下来的$n+1$行，每行有$n$个实数，表示球面上一点的$n$维坐标。每一个实数精确到小数点
+后$6$位，且其绝对值都不超过$20000$。
+\subsection*{输出格式}
+有且只有一行，依次给出球心的$n$维坐标（$n$个实数），两个实数之间用一个空格隔开。每个实数精确到小数点后$3$位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。
+\subsection*{输入样例}
+2 \\
+0.0 0.0 \\
+-1.0 1.0 \\ 
+1.0 0.0 
+\subsection*{输出样例}
+0.500 1.500
+\subsection*{数据范围}
+对于100\%的数据，$2 \leq N\leq 10$.
+\subsection*{提示}
+\begin{itemize}
+\item  球心：到球面上任意一点距离都相等的点。
+\item 距离：设两个$n$维空间上的点$A, B$的坐标为$(a_1, a_2, …, a_n), (b_1, b_2, …, b_n)$，则$AB$之间的距离定义为$\sqrt{\sum_{i=1}^n (a_i-b_i)^2}$
+\end{itemize}
+
+\end{CJK*}
+\end{document}

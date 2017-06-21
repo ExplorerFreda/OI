@@ -1,0 +1,10 @@
+main < sphere0.in > sphere0.out
+main < sphere1.in > sphere1.out
+main < sphere2.in > sphere2.out
+main < sphere3.in > sphere3.out
+main < sphere4.in > sphere4.out
+main < sphere5.in > sphere5.out
+main < sphere6.in > sphere6.out
+main < sphere7.in > sphere7.out
+main < sphere8.in > sphere8.out
+main < sphere9.in > sphere9.out
